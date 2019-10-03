@@ -1,9 +1,9 @@
 {
-  "AutoScalingGroupName": "runningAmazonEC2WorkloadsAtScale",
+  "AutoScalingGroupName": "lowest-price-n-1",
   "MixedInstancesPolicy": {
     "LaunchTemplate": {
       "LaunchTemplateSpecification": {
-        "LaunchTemplateName": "ec2-fleet",
+        "LaunchTemplateName": "amazon-linux-2",
         "Version": "$Latest"
       },
       "Overrides": [
@@ -17,19 +17,19 @@
           "InstanceType": "c5.large"
         },
         {
-          "InstanceType": "m3.large"
+          "InstanceType": "t3a.large"
         },
         {
-          "InstanceType": "m4.large"
+          "InstanceType": "t3.large"
+        },
+        {
+          "InstanceType": "m5a.large"
         },
         {
           "InstanceType": "m5.large"
         },
         {
-          "InstanceType": "r3.large"
-        },
-        {
-          "InstanceType": "r4.large"
+          "InstanceType": "r5a.large" 
         },
         {
           "InstanceType": "r5.large"
@@ -38,15 +38,15 @@
     },
     "InstancesDistribution": {
       "OnDemandAllocationStrategy": "prioritized",
-      "OnDemandBaseCapacity": 10,
-      "OnDemandPercentageAboveBaseCapacity": 25,
+      "OnDemandBaseCapacity": 0,
+      "OnDemandPercentageAboveBaseCapacity": 0,
       "SpotAllocationStrategy": "lowest-price",
-      "SpotInstancePools": 5
+      "SpotInstancePools": 1
     }
   },
   "MinSize": 10,
-  "MaxSize": 125,
-  "DesiredCapacity": 110,
+  "MaxSize": 40,
+  "DesiredCapacity": 20,
   "HealthCheckType": "EC2",
-  "VPCZoneIdentifier": "subnet-0fc4d2543f3dcc255,subnet-09b9d0dbca4bae8a5,subnet-0437dfe009676c434,subnet-052ed2e5eb7d058b4,subnet-07d4be5d4d87ecab2,subnet-0987cb4c3b3db2c83"
+  "VPCZoneIdentifier": "subnet-0fc4d2543f3dcc255,subnet-09b9d0dbca4bae8a5,subnet-0437dfe009676c434"
 }
